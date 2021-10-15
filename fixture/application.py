@@ -1,5 +1,6 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
+from fixture.progect import ProgectHelper
 
 
 class Application:
@@ -14,6 +15,7 @@ class Application:
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         # self.wd.implicitly_wait(1)
+        self.progect = ProgectHelper(self)
         self.session = SessionHelper(self)
         self.base_url = base_url
 
