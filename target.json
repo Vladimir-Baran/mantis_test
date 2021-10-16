@@ -5,6 +5,10 @@
   "webadmon": {
     "username": "administrator",
     "password": "root"
+  },
+  "ftp": {
+    "host": "locahost",
+    "username" : "mantis",
+    "password" : "mantis"
   }
-
 }
