@@ -13,31 +13,31 @@ class ProgectHelper:
         wd = self.app.wd
         return len(wd.find_elements_by_css_selector("td.center"))
 
-    def get_progect_list_tr1(self):
-        wd = self.app.wd
-        self.open_manage_projects_page()
-        tr = wd.find_elements_by_css_selector("tr.row-1")
-        list_progect_1 = []
-        for element in tr:
-            cells = element.find_elements_by_tag_name("td")
-            name = cells[0].text
-            list_progect_1.append(name)
-        return list_progect_1
-
-    def get_progect_list_tr2(self):
-        wd = self.app.wd
-        self.open_manage_projects_page()
-        tr = wd.find_elements_by_css_selector("tr.row-2")
-        list_progect_2 = []
-        for element in tr:
-            cells = element.find_elements_by_tag_name("td")
-            name = cells[0].text
-            list_progect_2.append(name)
-        return list_progect_2
-
     def get_progect_list(self):
         wd = self.app.wd
-        return "\n".join(map(str, itertools.chain.from_iterable(zip(self.get_progect_list_tr1(), self.get_progect_list_tr2()))))
+        self.open_manage_projects_page()
+        tr = wd.find_elements_by_css_selector("tr.row-1, tr.row-2")
+        list_progect = []
+        for element in tr:
+            cells = element.find_elements_by_tag_name("td")
+            name = cells[0].text
+            list_progect.append(name)
+        return list_progect
+
+    # def get_progect_list_tr2(self):
+    #     wd = self.app.wd
+    #     self.open_manage_projects_page()
+    #     tr = wd.find_elements_by_css_selector("tr.row-2")
+    #     list_progect_2 = []
+    #     for element in tr:
+    #         cells = element.find_elements_by_tag_name("td")
+    #         name = cells[0].text
+    #         list_progect_2.append(name)
+    #     return list_progect_2
+    #
+    # def get_progect_list(self):
+    #     wd = self.app.wd
+    #     return "\n".join(map(str, itertools.chain.from_iterable(zip(self.get_progect_list_tr1(), self.get_progect_list_tr2()))))
 
     def open_manage_projects_page(self):
         wd = self.app.wd

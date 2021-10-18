@@ -56,7 +56,7 @@ def pytest_addoption(parser):
 #     def fin():
 #         restore_server_congiguration(config['ftp']['host'], config['ftp']['username'], config['ftp']['password'])
 #     request.addfinalizer(fin)
-#
+
 # def install_server_congiguration(host, username, password):
 #     with ftputil.FTPHost(host, username, password) as remote:
 #         if remote.path.isfile("config_inc.php.bak"):
