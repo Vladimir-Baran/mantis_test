@@ -2,12 +2,12 @@
   "web": {
     "baseUrl": "http://localhost:8080/mantisbt-1.2.20"
   },
-  "webadmon": {
+  "webadmin": {
     "username": "administrator",
     "password": "root"
   },
   "ftp": {
-    "host": "locahost",
+    "host": "localhost",
     "username" : "mantis",
     "password" : "mantis"
   }

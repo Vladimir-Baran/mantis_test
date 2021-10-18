@@ -4,7 +4,7 @@ class SessionHelper:
     def __init__(self, app):
         self.app = app
 
-    def login(self, username, password):
+    def login_in(self, username, password):
         wd = self.app.wd
         self.app.open_home_page()
         wd.find_element_by_name("username").click()
@@ -35,12 +35,3 @@ class SessionHelper:
     def get_logged_user(self):
         wd = self.app.wd
         return wd.find_element_by_css_selector("td.login-info-left span").text
-
-    def ensure_login(self, login):
-        wd = self.app.wd
-        if self.is_logged_in():
-            if self.is_logged_in_as(login):
-                return
-            else:
-                self.logout()
-        self.login(login)
