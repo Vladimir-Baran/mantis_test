@@ -40,19 +40,32 @@ class ProgectHelper:
         wd = self.app.wd
         self.open_manage_projects_page()
         wd.find_element_by_css_selector("input[value='Create New Project']").click()
-        wd.find_element_by_name("name").send_keys(random_name)
+        self.fill_project_form(random_name)
         wd.find_element_by_css_selector("input[value='Add Project']").click()
         time.sleep(3)
 
-    def del_progect(self):
+    def fill_project_form(self, project):
+        wd = self.app.wd
+        self.change_field_value("name", project.name)
+
+    def change_field_value(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)
+
+    def del_progect(self, id):
         wd = self.app.wd
         self.open_manage_projects_page()
-        self.select_project_by_id()
+        self.select_progect_by_id(id)
+        time.sleep(1)
         wd.find_element_by_css_selector("input[value='Delete Project']").click()
         wd.find_element_by_css_selector("input[value='Delete Project']").click()
         time.sleep(6)
 
-    def select_project_by_id(self, id):
+    def select_progect_by_id(self, id):
         wd = self.app.wd
-        wd.get(self.app.base_url + 'manage_proj_edit_page.php?project_id='+id)
+        wd.get(self.app.base_url + "manage_proj_edit_page.php?project_id=" + str(id))
+
 

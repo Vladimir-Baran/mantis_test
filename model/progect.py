@@ -14,7 +14,7 @@ class Progect:
                (self.id is None or other.id is None or self.id == other.id)
 
     def id_or_max(self):
-        if str(self.id):
-            return str(self.id)
+        if self.id:
+            return self.id
         else:
             return maxsize
