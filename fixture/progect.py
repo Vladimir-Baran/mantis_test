@@ -44,7 +44,7 @@ class ProgectHelper:
 
     def del_progect(self):
         wd = self.app.wd
-
+        self.open_manage_projects_page()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.find_element_by_xpath("//input[@value='Delete Category']").click()
         time.sleep(6)
